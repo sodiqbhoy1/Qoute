@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let url = 'https://api.quotable.io/random';
 
+
     // Function to generate quote
     const qouteGenerator = () => {
         // Show the loader
@@ -18,12 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Hide the loader
                 loader.style.display = 'none';
                 result.style.display = 'block';
-
+               
                 // Display result
                 result.innerHTML = `
-                    <div class="quote-area">
+                    <div class="qoute-area">
                         <i class="fa-solid fa-quote-left"></i>
-                        <p class="quote">${data.content}</p>
+                        <p class="qoute">${data.content}</p>
                         <i class="fa-solid fa-quote-right"></i>
                     </div>
                     <div class="author">
@@ -31,12 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span class="name">${data.author}</span>
                     </div>
                 `;
-
-                // Add text-to-speech functionality
-                soundBtn.addEventListener('click', () => {
-                    let speech = new SpeechSynthesisUtterance(data.content);
-                    speechSynthesis.speak(speech);
-                });
             })
             .catch(error => {
                 console.error('Error fetching quote:', error);
@@ -53,4 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     newQuote.addEventListener('click', () => {
         qouteGenerator();
     });
+
+    
+
 });
