@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error('Error fetching quote:', error);
                 loader.style.display = 'none';
                 result.style.display = 'block';
-                result.innerHTML = '<div id="error">An error occurred while fetching the quote. Please try again.</div>';
+                // result.innerHTML = '<div id="error">An error occurred while fetching the quote. Please try again.</div>';
+                result.innerHTML = `${error.message},${error.status},${error}`;
             });
     };
 
